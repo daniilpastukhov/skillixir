@@ -1,0 +1,17 @@
+version: '3.8'  # Use at least Compose file version 3.1
+
+services:
+  mongo:
+    build: .docker/mongo
+    container_name: mongodb 
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - mongo-data:/data/db  # Persist MongoDB data to named volume
+
+
+volumes:
+  mongo-data:  # Declare the volume name used above
