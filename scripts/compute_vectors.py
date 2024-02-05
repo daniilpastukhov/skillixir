@@ -1,5 +1,6 @@
 import os
 from string import Template
+import time
 
 from dotenv import load_dotenv
 from llama_cpp import Llama
@@ -24,6 +25,7 @@ target_collection = db['jobs_vectors']
 llm = Llama(model_path='/workspaces/skillixir/models/llama-2-7b.Q4_K_M.gguf', embedding=True, n_ctx=MAX_LENGTH)
 
 for doc in source_collection.find():
+    start_time = time.time()
     content = CONTENT_TEMPLATE.substitute(
         title=doc['title'],
         company=doc['company'],
@@ -31,4 +33,8 @@ for doc in source_collection.find():
         description=doc['description']
     )[:MAX_LENGTH]
     doc['embedding'] = llm.create_embedding(doc['description'])
-    target_collection.insert_one(doc)
+    if target_collection.find_one({'_id': doc['_id']}):
+        target_collection.update_one({'_id': doc['_id']}, {'$set': doc})
+    else:
+        target_collection.insert_one(doc)
+    print(f'Elapsed time: {time.time() - start_time} seconds')
