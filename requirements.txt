@@ -1,0 +1,4 @@
+airflow==2.8.1
+linkedin_jobs_scraper==4.0.0
+python-dotenv==1.0.1
+pymongo==4.6.1
