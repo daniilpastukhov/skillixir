@@ -1,7 +1,0 @@
-README.md
-pyproject.toml
-setup.py
-src/skillixir.egg-info/PKG-INFO
-src/skillixir.egg-info/SOURCES.txt
-src/skillixir.egg-info/dependency_links.txt
-src/skillixir.egg-info/top_level.txt
