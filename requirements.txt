@@ -2,3 +2,9 @@ airflow==2.8.1
 linkedin_jobs_scraper==4.0.0
 python-dotenv==1.0.1
 pymongo==4.6.1
+rank_bm25==0.2.2
+keybert==0.8.4
+PyPDF2==3.0.1
+pdf2image==1.17.0
+pytesseract==0.3.10
+streamlit-searchbox

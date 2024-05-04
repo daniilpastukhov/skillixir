@@ -1,0 +1,1 @@
+huggingface-cli download --local-dir models/mistral7b TheBloke/Mistral-7B-v0.1-GGUF mistral-7b-v0.1.Q5_K_M.gguf
